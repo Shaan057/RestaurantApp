@@ -1,0 +1,76 @@
+.bg-container {
+  min-height: 100vh;
+}
+
+.menu-category-container {
+  position: relative;
+  top: 10vh;
+  margin: 0;
+  border-bottom: 1px solid gray;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  list-style: none;
+  padding: 10px 10px;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+@media screen and (min-width: 768px) {
+  .menu-category-container {
+    overflow-x: hidden;
+  }
+}
+.menu-category-item {
+  text-align: center;
+  padding: 0px 10px;
+  cursor: pointer;
+  flex-grow: 1;
+}
+@media screen and (min-width: 768px) {
+  .menu-category-item {
+    padding: 0px 10px;
+  }
+}
+.activeItem {
+  color: red;
+}
+.menus-button {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: inherit;
+}
+
+.dishes-list-container {
+  position: relative;
+  top: 10vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+  gap: 10px;
+}
+
+.loader-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.failure-container {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url('https://res.cloudinary.com/dx8csuvrh/image/upload/v1699879219/Movies%20App/Login%20Page/snow-removal-machine-working-high-ski-slope-snowstorm_454047-2149_1_2_j6bv3a.png');
+  background-size: cover;
+}
+
+.failure {
+  margin: 0;
+}

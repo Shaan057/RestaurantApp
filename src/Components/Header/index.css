@@ -1,0 +1,74 @@
+.navBar {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  background-color: white;
+  height: 10vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 20px;
+  border-bottom: 1px solid gray;
+}
+.link {
+  text-decoration: none;
+}
+.restaurantName-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.website-icon {
+  height: 20px;
+  width: 20px;
+}
+
+.restaurantName {
+  margin: 0;
+  font-size: 18px;
+  font-style: italic;
+  color: rgb(50, 47, 47);
+}
+.buttons-div {
+  display: flex;
+  align-items: center;
+}
+.cart-button {
+  display: flex;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+.cart-icon {
+  height: 30px;
+  width: 30px;
+}
+.my-orders {
+  font-size: 15px;
+  margin: 0;
+}
+.cart-items {
+  display: flex;
+  position: relative;
+  right: 11px;
+  top: -6px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  height: 13px;
+  width: 13px;
+  font-size: 8px;
+}
+.items-count {
+  margin: 0px;
+  margin: auto;
+}
+@media screen and (min-width: 768px) {
+  .restaurantName {
+    font-size: 28px;
+  }
+}
