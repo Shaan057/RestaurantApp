@@ -44,13 +44,21 @@
   margin: 0;
 }
 .cart-icon {
-  height: 30px;
+  height: 32px;
   width: 30px;
 }
+
 .my-orders {
-  font-size: 15px;
-  margin: 0;
+  display: none;
 }
+@media screen and (min-width: 768px) {
+  .my-orders {
+    display: inline;
+    font-size: 15px;
+    margin: 0;
+  }
+}
+
 .cart-items {
   display: flex;
   position: relative;
