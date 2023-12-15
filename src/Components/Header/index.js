@@ -8,10 +8,10 @@ import Context from '../../Context'
 const Header = props => {
   const {id} = props
   const context = useContext(Context)
-  const {restaurantName, cartData} = context
+  const {restaurantName, cartData, itemsCount} = context
   const object = cartData.find(each => each.activeTabId === id)
 
-  const {itemsCount} = object
+  //   const {itemsCount} = object
   return (
     <nav className="navBar">
       {/* <Link to="/" className="link"> */}

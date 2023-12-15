@@ -70,20 +70,20 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       setApiStatus(apiStatusConstants.inProgress)
-
-      const url = 'https://run.mocky.io/v3/77a7e71b-804a-4fbd-822c-3e365d3482cc'
-      const options = {
-        method: 'GET',
-      }
-      const response = await fetch(url, options)
-      const responseData = await response.json()
-      if (response.ok === true) {
+      try {
+        const url =
+          'https://run.mocky.io/v3/77a7e71b-804a-4fbd-822c-3e365d3482cc'
+        const options = {
+          method: 'GET',
+        }
+        const response = await fetch(url, options)
+        const responseData = await response.json()
         const [result] = responseData.map(each => formattedData(each))
         const {restaurantName} = result
         setApiData(result)
         setApiStatus(apiStatusConstants.success)
         setRestaurantName(restaurantName)
-      } else {
+      } catch (error) {
         setApiStatus(apiStatusConstants.failure)
       }
     }

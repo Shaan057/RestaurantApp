@@ -103,16 +103,6 @@
   .dish-description {
     font-size: 20px;
   }
-  .add-to-cart-buttons {
-    width: 200px;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    background-color: green;
-    border-radius: 50px 50px;
-  }
 }
 
 .button {

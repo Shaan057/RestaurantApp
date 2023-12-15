@@ -25,7 +25,13 @@ const Dishes = props => {
   const price = count ? dishPrice * count : dishPrice
 
   const context = useContext(Context)
-  const {increaseCartCount, decreaseCartCount} = context
+  const {
+    increaseCartCount,
+    decreaseCartCount,
+    // itemsCount,
+    increaseItemsCount,
+    decreaseItemsCount,
+  } = context
 
   const isVegNonveg = dishType === 1 ? 'non-veg box' : 'veg box'
   const circle = dishType === 1 ? 'non-veg-circle circle' : 'veg-circle circle'
@@ -34,11 +40,13 @@ const Dishes = props => {
 
   const onIncreased = () => {
     increaseCount(data, dishId, activeTabId)
-    increaseCartCount(activeTabId)
+    // increaseCartCount(activeTabId)
+    increaseItemsCount()
   }
   const onDecreased = () => {
     decreaseCount(data, dishId, activeTabId)
-    decreaseCartCount(activeTabId)
+    // decreaseCartCount(activeTabId)
+    decreaseItemsCount()
   }
 
   // for future

@@ -8,6 +8,9 @@ const Context = React.createContext({
   cartData: [],
   activeTab: 'Salads and Soup',
   setActiveTabs: () => {},
+  itemsCount: 0,
+  increaseItemsCount: () => {},
+  decreaseItemsCount: () => {},
 })
 
 export default Context

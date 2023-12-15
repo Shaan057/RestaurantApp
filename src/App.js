@@ -11,6 +11,22 @@ class App extends Component {
     restaurantName: '',
     cartData: [{activeTabId: 'Salads and Soup', itemsCount: 0}],
     activeTab: 'Salads and Soup',
+    itemsCount: 0,
+  }
+
+  increaseItemsCount = () => {
+    this.setState(prev => ({
+      itemsCount: prev.itemsCount + 1,
+    }))
+  }
+
+  decreaseItemsCount = () => {
+    const {itemsCount} = this.state
+    if (itemsCount > 0) {
+      this.setState(prev => ({
+        itemsCount: prev.itemsCount - 1,
+      }))
+    }
   }
 
   setActiveTabs = id => {
@@ -72,7 +88,7 @@ class App extends Component {
   }
 
   render() {
-    const {restaurantName, activeTab, cartData} = this.state
+    const {restaurantName, activeTab, cartData, itemsCount} = this.state
 
     return (
       <Context.Provider
@@ -84,6 +100,9 @@ class App extends Component {
           cartData,
           activeTab,
           setActiveTabs: this.setActiveTabs,
+          itemsCount,
+          increaseItemsCount: this.increaseItemsCount,
+          decreaseItemsCount: this.decreaseItemsCount,
         }}
       >
         <Home />
