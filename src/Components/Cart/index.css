@@ -1,0 +1,186 @@
+.cart-background-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 90vh;
+  position: relative;
+  top: 10vh;
+}
+.cart-empty-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+}
+.empty-cart-img {
+  width: 200px;
+  height: 200px;
+}
+.cart-dishes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 10px;
+}
+
+.cart-item {
+  display: flex;
+  border: 1px solid grey;
+  border-radius: 5px;
+  width: 95%;
+}
+
+.cart-dish-image {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  width: 100px;
+  height: 100px;
+}
+.cart-dish-name {
+  margin: 5px 0px;
+  font-size: 10px;
+}
+
+.cart-dish-price {
+  position: relative;
+  top: -5px;
+  font-size: 10px;
+  margin: 5px 0px;
+}
+.sub {
+  margin: 0;
+  font-size: 10px;
+  color: gray;
+}
+
+.cart-count-counter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100px;
+  height: 20px;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+}
+.cart-counter-button {
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  border: red;
+  outline: none;
+  height: 20px;
+  width: 20px;
+  font-size: 10px;
+}
+.cart-counter-button:hover {
+  scale: 0.9;
+}
+
+.cart-count-point {
+  font-size: 10px;
+  height: 20px;
+  margin: 0;
+  padding-top: 4px;
+}
+
+.cart-removeAll-button {
+  align-self: flex-end;
+  margin: 10px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: rgb(163, 37, 37);
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.cart-removeAll-button:hover {
+  color: black;
+}
+.cart-dish-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 3px 10px;
+}
+.cart-remove-button {
+  display: none;
+}
+.cart-remove-button-sm {
+  border: none;
+  background-color: red;
+  outline: none;
+  color: white;
+  width: 100px;
+}
+@media screen and (min-width: 760px) {
+  .cart-removeAll-button {
+    width: 100px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .cart-remove-button-sm {
+    display: none;
+  }
+  .cart-remove-button {
+    cursor: pointer;
+    display: inline;
+    margin-left: auto;
+    border: none;
+    width: 15%;
+    flex-shrink: 0;
+    background-color: red;
+    outline: none;
+    color: white;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    word-wrap: break-word;
+  }
+  .cart-dish-details {
+  }
+  .cart-dish-image {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    width: 190px;
+    height: 200px;
+  }
+  .cart-item {
+    display: flex;
+    border: 1px solid grey;
+    border-radius: 5px;
+    width: 85%;
+  }
+  .cart-dish-name {
+    margin: 5px 0px;
+    font-size: 25px;
+  }
+
+  .cart-dish-price {
+    position: relative;
+    top: -20px;
+    font-size: 20px;
+    margin: 5px 0px;
+  }
+  .sub {
+    margin: 0;
+    font-size: 14px;
+    color: gray;
+  }
+  .cart-count-counter {
+    height: 40px;
+    width: 200px;
+  }
+  .cart-counter-button {
+    height: 40px;
+    width: 40px;
+    font-size: 15px;
+  }
+  .cart-count-point {
+    height: 40px;
+    line-height: 40px;
+    margin: 0;
+  }
+}

@@ -5,12 +5,12 @@ import Context from '../../Context'
 
 const MenuCategoryItems = props => {
   const context = useContext(Context)
-  const {setActiveTabs, activeTab} = context
+  const {setActiveTab, activeTab} = context
   const {data} = props
   const {menuCategory} = data
 
   const setActiveTabOn = () => {
-    setActiveTabs(menuCategory)
+    setActiveTab(menuCategory)
   }
   const activeTabClass =
     activeTab === menuCategory

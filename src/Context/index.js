@@ -3,14 +3,20 @@ import React from 'react'
 const Context = React.createContext({
   restaurantName: '',
   setRestaurantName: () => {},
-  increaseCartCount: () => {},
-  decreaseCartCount: () => {},
-  cartData: [],
+  //   increaseCartCount: () => {},
+  //   decreaseCartCount: () => {},
+  //   cartData: [],
   activeTab: 'Salads and Soup',
-  setActiveTabs: () => {},
-  itemsCount: 0,
-  increaseItemsCount: () => {},
-  decreaseItemsCount: () => {},
+  setActiveTab: () => {},
+  //   itemsCount: 0,
+  //   increaseItemsCount: () => {},
+  //   decreaseItemsCount: () => {},
+  cartList: [],
+  removeAllCartItems: () => {},
+  addCartItem: () => {},
+  removeCartItem: () => {},
+  incrementCartItemQuantity: () => {},
+  decrementCartItemQuantity: () => {},
 })
 
 export default Context

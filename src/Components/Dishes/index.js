@@ -7,7 +7,7 @@ import Context from '../../Context'
 
 const Dishes = props => {
   const {data, activeTabId, increaseCount, decreaseCount} = props
-
+  //   const [quantity, setQuantity] = useState(0)
   const {
     dishId,
     dishName,
@@ -26,12 +26,17 @@ const Dishes = props => {
 
   const context = useContext(Context)
   const {
-    increaseCartCount,
-    decreaseCartCount,
+    // increaseCartCount,
+    // decreaseCartCount,
     // itemsCount,
-    increaseItemsCount,
-    decreaseItemsCount,
+    // increaseItemsCount,
+    // decreaseItemsCount,
+    addCartItem,
   } = context
+
+  const onAddToCartButtonClicked = () => {
+    addCartItem(data)
+  }
 
   const isVegNonveg = dishType === 1 ? 'non-veg box' : 'veg box'
   const circle = dishType === 1 ? 'non-veg-circle circle' : 'veg-circle circle'
@@ -41,12 +46,12 @@ const Dishes = props => {
   const onIncreased = () => {
     increaseCount(data, dishId, activeTabId)
     // increaseCartCount(activeTabId)
-    increaseItemsCount()
+    // increaseItemsCount()
   }
   const onDecreased = () => {
     decreaseCount(data, dishId, activeTabId)
     // decreaseCartCount(activeTabId)
-    decreaseItemsCount()
+    // decreaseItemsCount()
   }
 
   // for future
@@ -74,19 +79,30 @@ const Dishes = props => {
         <p className="dish-description">{dishDescription}</p>
         {dishAvailability ? (
           <>
-            <div className="add-to-cart-buttons">
-              <button
-                className="button"
-                type="button"
-                onClick={onDecreased}
-                disabled={count === 0}
-              >
-                {/* <FaMinus className="button-icon" /> */}-
-              </button>
-              <p className="cart-count">{count}</p>
-              <button className="button" type="button" onClick={onIncreased}>
-                {/* <FaPlus className="button-icon" /> */}+
-              </button>
+            <div className="flex-container">
+              <div className="add-to-cart-buttons">
+                <button
+                  className="button"
+                  type="button"
+                  onClick={onDecreased}
+                  disabled={count === 0}
+                >
+                  {/* <FaMinus className="button-icon" /> */}-
+                </button>
+                <p className="cart-count">{count}</p>
+                <button className="button" type="button" onClick={onIncreased}>
+                  {/* <FaPlus className="button-icon" /> */}+
+                </button>
+              </div>
+              {count > 0 ? (
+                <button
+                  className="add-to-cart-button"
+                  type="button"
+                  onClick={onAddToCartButtonClicked}
+                >
+                  ADD TO CART
+                </button>
+              ) : null}
             </div>
             {isAddOnAvailable && (
               <div className="customizations-container">

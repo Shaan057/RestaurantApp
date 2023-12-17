@@ -76,7 +76,11 @@
 .cart-count {
   margin: 0;
 }
-
+.flex-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
 .add-to-cart-buttons {
   width: 100px;
   color: white;
@@ -86,6 +90,18 @@
   padding: 5px 10px;
   background-color: green;
   border-radius: 50px 50px;
+}
+.add-to-cart-button {
+  background-color: transparent;
+  border: 1px solid green;
+  outline: none;
+  padding: 5px 6px;
+  border-radius: 4px;
+  font-weight: 400;
+  cursor: pointer;
+}
+.add-to-cart-button:hover {
+  font-weight: bold;
 }
 .customizations-container {
   display: flex;
