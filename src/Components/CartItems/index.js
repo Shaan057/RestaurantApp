@@ -34,7 +34,8 @@ const CartItems = props => {
       <div className="cart-dish-details">
         <h2 className="cart-dish-name">{dishName}</h2>
         <p className="cart-dish-price">
-          {(dishPrice * count).toFixed(2)}
+          {dishPrice * count}
+          {/* {(dishPrice * count).toFixed(2)} */}
           <span className="sub"> {dishCurrency}</span>
         </p>
         <div className="cart-count-counter">
