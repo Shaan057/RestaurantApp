@@ -17,7 +17,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 40px;
+  width: 30px;
   height: 30px;
 }
 .circle {
@@ -45,7 +45,7 @@
 .dish-info {
   width: 50%;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 425px) {
   .box {
     width: 40px;
     height: 40px;
@@ -71,6 +71,7 @@
   color: gray;
 }
 .dish-description {
+  width: 90%;
   font-size: 12px;
 }
 .cart-count {
@@ -78,8 +79,15 @@
 }
 .flex-container {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: 5px;
+}
+
+@media screen and (min-width: 768px) {
+  .flex-container {
+    display: flex;
+    flex-direction: row;
+  }
 }
 .add-to-cart-buttons {
   width: 100px;
@@ -92,12 +100,14 @@
   border-radius: 50px 50px;
 }
 .add-to-cart-button {
+  width: 100px;
+  font-size: 10px;
+  font-weight: bold;
   background-color: transparent;
   border: 1px solid green;
   outline: none;
   padding: 5px 6px;
   border-radius: 4px;
-  font-weight: 400;
   cursor: pointer;
 }
 .add-to-cart-button:hover {
@@ -140,14 +150,33 @@
 .calorie-image-container {
   display: flex;
 }
+
 .calories-container {
+  order: 1;
   align-self: flex-start;
   color: #ffa512;
   font-weight: 500;
 }
+
+@media screen and (min-width: 768px) {
+  .calorie-image-container-main {
+    flex-direction: row;
+  }
+  .calories-container {
+    order: 0;
+  }
+}
 .dish-image-container {
+  order: 0;
   display: flex;
 }
+
+@media screen and (min-width: 768px) {
+  .dish-image-container {
+    order: 1;
+  }
+}
+
 .dish-image {
   height: 100px;
   width: 100px;

@@ -2,8 +2,6 @@ import './index.css'
 import {useContext} from 'react'
 import {Link, withRouter} from 'react-router-dom'
 import Cookies from 'js-cookie'
-// import {GrCafeteria} from 'react-icons/gr'
-// import {AiOutlineShoppingCart} from 'react-icons/ai'
 import Context from '../../Context'
 
 const Header = props => {
@@ -25,16 +23,12 @@ const Header = props => {
   return (
     <nav className="navBar">
       <Link to="/" className="link restaurantName-container">
-        {/* <div className="restaurantName-container"> */}
-        {/* <GrCafeteria className="website-icon" /> */}
         <h1 className="restaurantName">{restaurantName || 'UNI Resto Cafe'}</h1>
-        {/* </div> */}
       </Link>
       <div className="buttons-div">
         <p className="my-orders">My Orders</p>
         <Link to="/cart" className="link">
           <button className="cart-button" type="button">
-            {/*  onClick={onClickCart} */}
             <img
               className="cart-icon"
               src="https://res.cloudinary.com/dx8csuvrh/image/upload/v1702554012/Movies%20App/Login%20Page/cart1_chhkzo.png"

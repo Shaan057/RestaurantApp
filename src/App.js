@@ -1,4 +1,3 @@
-/* eslint-disable no-else-return */
 import './App.css'
 import {Component} from 'react'
 import {Route, Switch, Redirect} from 'react-router-dom'
@@ -12,8 +11,6 @@ import ProtectedRoute from './Components/ProtectedRoute'
 class App extends Component {
   state = {
     restaurantName: '',
-    // cartData: [{activeTabId: 'Salads and Soup', itemsCount: 0}],
-    activeTab: 'Salads and Soup',
     cartList: [],
     // itemsCount: 0,
   }
@@ -104,82 +101,19 @@ class App extends Component {
   //     }
   //   }
 
-  setActiveTab = tab => {
-    this.setState({
-      activeTab: tab,
-    })
-  }
-
-  setActiveTabs = id => {
-    const {cartData} = this.state
-
-    const isPresent = cartData.some(each => each.activeTabId === id)
-    if (!isPresent) {
-      this.setState(prev => ({
-        cartData: [...prev.cartData, {activeTabId: id, itemsCount: 0}],
-      }))
-    }
-    this.setState({activeTab: id})
-  }
-
-  //   increaseCartCount = id => {
-  //     const {cartData} = this.state
-
-  //     const isPresent = cartData.some(each => each.activeTabId === id)
-
-  //     if (isPresent) {
-  //       const arr = cartData.map(each => {
-  //         if (each.activeTabId === id) {
-  //           return {
-  //             ...each,
-  //             itemsCount: each.itemsCount + 1,
-  //           }
-  //         }
-  //         return each
-  //       })
-
-  //       this.setState({
-  //         cartData: arr,
-  //       })
-  //     } else {
-  //       this.setState(prev => ({
-  //         cartData: [...prev.cartData, {activeTabId: id, itemsCount: 0}],
-  //       }))
-  //     }
-  //   }
-
-  //   decreaseCartCount = id => {
-  //     const {cartData} = this.state
-  //     const arr = cartData.map(each => {
-  //       if (each.activeTabId === id) {
-  //         return {
-  //           ...each,
-  //           itemsCount: each.itemsCount > 0 ? each.itemsCount - 1 : 0,
-  //         }
-  //       }
-  //       return each
-  //     })
-  //     this.setState({
-  //       cartData: arr,
-  //     })
-  //   }
-
   setRestaurantName = value => {
     this.setState({restaurantName: value})
   }
 
   render() {
-    const {restaurantName, activeTab, cartList} = this.state
+    const {restaurantName, cartList} = this.state
 
     return (
       <Context.Provider
         value={{
           restaurantName,
           setRestaurantName: this.setRestaurantName,
-          increaseCartCount: this.increaseCartCount,
-          decreaseCartCount: this.decreaseCartCount,
-          activeTab,
-          setActiveTab: this.setActiveTab,
+
           //   itemsCount,
           //   increaseItemsCount: this.increaseItemsCount,
           //   decreaseItemsCount: this.decreaseItemsCount,
@@ -195,8 +129,8 @@ class App extends Component {
           <Route exact path="/login" component={Login} />
           <ProtectedRoute exact path="/" component={Home} />
           <ProtectedRoute exact path="/cart" component={Cart} />
-          {/* <Route path="/not-found" component={NotFound} />
-          <Redirect to="/not-found" /> */}
+          <Route path="/not-found" component={NotFound} />
+          <Redirect to="/not-found" />
         </Switch>
       </Context.Provider>
     )

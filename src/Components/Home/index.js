@@ -15,9 +15,10 @@ const apiStatusConstants = {
 
 const Home = () => {
   const context = useContext(Context)
-  const {setRestaurantName, activeTab} = context
+  const {setRestaurantName} = context
 
   const [apiData, setApiData] = useState(null)
+  const [activeTab, setActiveTab] = useState('Salads and Soup')
   const [apiStatus, setApiStatus] = useState(apiStatusConstants.initial)
 
   const formattedData = data => ({
@@ -34,7 +35,6 @@ const Home = () => {
       menuCategoryImage: each.menu_category_image,
       nextUrl: each.nexturl,
       categoryDishes: each.category_dishes.map(obj => ({
-        count: 0,
         dishId: obj.dish_id,
         dishName: obj.dish_name,
         dishPrice: obj.dish_price,
@@ -51,7 +51,6 @@ const Home = () => {
           addonSelection: d.addon_selection,
           nextUrl: d.nexturl,
           addons: d.addons.map(a => ({
-            isChecked: false,
             dishId: a.dish_id,
             dishName: a.dish_name,
             dishPrice: a.dish_price,
@@ -85,65 +84,9 @@ const Home = () => {
       }
     }
     fetchData()
-  }, [])
+  }, [setRestaurantName])
 
-  const increaseCount = (value, id, activeTabId) => {
-    const updatedData = apiData.tableMenuList.map(each => {
-      if (each.menuCategory === activeTabId) {
-        const updatedCategoryDishes = each.categoryDishes.map(e => {
-          if (e.dishId === id) {
-            return {
-              ...e,
-              count: e.count + 1,
-            }
-          }
-          return e
-        })
-
-        return {
-          ...each,
-          categoryDishes: updatedCategoryDishes,
-        }
-      }
-      return each
-    })
-    const newData = {
-      ...apiData,
-      tableMenuList: updatedData,
-    }
-    setApiData(newData)
-  }
-
-  const decreaseCount = (value, id, activeTabId) => {
-    const updatedData = apiData.tableMenuList.map(each => {
-      if (each.menuCategory === activeTabId) {
-        const updatedCategoryDishes = each.categoryDishes.map(e => {
-          if (e.dishId === id) {
-            if (e.count > 0) {
-              return {
-                ...e,
-                count: e.count - 1,
-              }
-            }
-          }
-          return e
-        })
-
-        return {
-          ...each,
-          categoryDishes: updatedCategoryDishes,
-        }
-      }
-      return each
-    })
-    const newData = {
-      ...apiData,
-      tableMenuList: updatedData,
-    }
-    setApiData(newData)
-  }
-
-  const renderVideosView = () => {
+  const renderSuccessView = () => {
     const {tableMenuList} = apiData
     const [activeDishes] = tableMenuList.filter(
       each => each.menuCategory === activeTab,
@@ -151,13 +94,14 @@ const Home = () => {
 
     return (
       <>
-        <Header id={activeTab} />
+        <Header />
         <ul className="menu-category-container">
           {tableMenuList.map(each => (
             <MenuCategoryItems
               key={each.menuCategory}
               data={each}
-              activeTAB={activeTab}
+              activeTab={activeTab}
+              setActiveTab={setActiveTab}
             />
           ))}
         </ul>
@@ -167,9 +111,8 @@ const Home = () => {
               key={ea.dishId}
               data={ea}
               activeTabId={activeDishes.menuCategory}
-              increaseCount={increaseCount}
-              decreaseCount={decreaseCount}
-              //   updateAddons={updateAddons}
+              //   increaseCount={increaseCount}
+              //   decreaseCount={decreaseCount}
             />
           ))}
         </ul>
@@ -191,10 +134,10 @@ const Home = () => {
     </div>
   )
 
-  const renderOriginalsVideos = () => {
+  const renderPage = () => {
     switch (apiStatus) {
       case apiStatusConstants.success:
-        return renderVideosView()
+        return renderSuccessView()
       case apiStatusConstants.failure:
         return renderFailureView()
       case apiStatusConstants.inProgress:
@@ -203,57 +146,8 @@ const Home = () => {
         return null
     }
   }
-  return <div className="bg-container">{renderOriginalsVideos()}</div>
+
+  return <div className="bg-container">{renderPage()}</div>
 }
 
 export default Home
-
-// furture
-
-//   const updateAddons = (checked, mainDishId, activeTabId, addOnDishId) => {
-//     const {apiData} = state
-//     const updatedMenuList = apiData.tableMenuList.map(each => {
-//       if (each.menuCategoryId === activeTabId) {
-//         const newCategoryDishes = each.categoryDishes.map(e => {
-//           if (e.dishId === mainDishId) {
-//             const newAddonCatList = e.addOnCat.map(b => {
-//               if (b.addons.some(a => a.dishId === addOnDishId)) {
-//                 return {
-//                   ...b,
-//                   addons: b.addons.map(a => {
-//                     if (a.dishId === addOnDishId) {
-//                       return {
-//                         ...a,
-//                         isChecked: !a.isChecked,
-//                       }
-//                     }
-//                     return a
-//                   }),
-//                 }
-//               }
-//               return b
-//             })
-//             return {
-//               ...e,
-//               addOnCat: newAddonCatList,
-//             }
-//           }
-//           return e
-//         })
-//         return {
-//           ...each,
-//           categoryDishes: newCategoryDishes,
-//         }
-//       }
-//       return each
-//     })
-
-//     const newData = {
-//       ...apiData,
-//       tableMenuList: updatedMenuList,
-//     }
-//     setState(prev => ({
-//       ...prev,
-//       apiData: newData,
-//     }))
-//   }

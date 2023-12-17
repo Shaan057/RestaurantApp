@@ -1,12 +1,7 @@
 import './index.css'
-import {useContext} from 'react'
-
-import Context from '../../Context'
 
 const MenuCategoryItems = props => {
-  const context = useContext(Context)
-  const {setActiveTab, activeTab} = context
-  const {data} = props
+  const {data, activeTab, setActiveTab} = props
   const {menuCategory} = data
 
   const setActiveTabOn = () => {
@@ -17,8 +12,8 @@ const MenuCategoryItems = props => {
       ? 'activeItem menu-category-item'
       : 'menu-category-item'
   return (
-    <li className={activeTabClass} onClick={setActiveTabOn}>
-      <button className="menus-button" type="button">
+    <li className={activeTabClass}>
+      <button className="menus-button" type="button" onClick={setActiveTabOn}>
         {menuCategory}
       </button>
     </li>

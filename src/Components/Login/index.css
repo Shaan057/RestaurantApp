@@ -8,6 +8,7 @@
   min-height: 100vh;
   background-blend-mode: color-burn;
   margin: auto;
+  padding: 10px;
 }
 
 @media screen and (min-width: 992px) {
