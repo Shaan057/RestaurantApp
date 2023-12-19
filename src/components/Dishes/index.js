@@ -1,6 +1,6 @@
 import './index.css'
 import {useContext, useState} from 'react'
-import Context from '../../Context'
+import CartContext from '../../context/CartContext'
 
 const Dishes = props => {
   const {data} = props //  activeTabId, increaseCount, decreaseCount
@@ -20,7 +20,7 @@ const Dishes = props => {
 
   //   const price = count ? dishPrice * count : dishPrice
 
-  const context = useContext(Context)
+  const context = useContext(CartContext)
   const {
     // itemsCount,
     // increaseItemsCount,

@@ -3,7 +3,7 @@ import {useState, useEffect, useContext} from 'react'
 import Loader from 'react-loader-spinner'
 import Header from '../Header'
 import Dishes from '../Dishes'
-import Context from '../../Context'
+import CartContext from '../../context/CartContext'
 import MenuCategoryItems from '../MenuCategoryItems'
 
 const apiStatusConstants = {
@@ -14,7 +14,7 @@ const apiStatusConstants = {
 }
 
 const Home = () => {
-  const context = useContext(Context)
+  const context = useContext(CartContext)
   const {setRestaurantName} = context
 
   const [apiData, setApiData] = useState(null)
@@ -84,7 +84,7 @@ const Home = () => {
       }
     }
     fetchData()
-  }, [setRestaurantName])
+  }, [])
 
   const renderSuccessView = () => {
     const {tableMenuList} = apiData

@@ -1,12 +1,12 @@
 import './App.css'
 import {Component} from 'react'
 import {Route, Switch, Redirect} from 'react-router-dom'
-import Home from './Components/Home'
-import Login from './Components/Login'
-import Cart from './Components/Cart'
-import NotFound from './Components/NotFound'
-import Context from './Context'
-import ProtectedRoute from './Components/ProtectedRoute'
+import Home from './components/Home'
+import Login from './components/Login'
+import Cart from './components/Cart'
+import NotFound from './components/NotFound'
+import CartContext from './context/CartContext'
+import ProtectedRoute from './components/ProtectedRoute'
 
 class App extends Component {
   state = {
@@ -109,7 +109,7 @@ class App extends Component {
     const {restaurantName, cartList} = this.state
 
     return (
-      <Context.Provider
+      <CartContext.Provider
         value={{
           restaurantName,
           setRestaurantName: this.setRestaurantName,
@@ -132,7 +132,7 @@ class App extends Component {
           <Route path="/not-found" component={NotFound} />
           <Redirect to="/not-found" />
         </Switch>
-      </Context.Provider>
+      </CartContext.Provider>
     )
   }
 }
