@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 import './index.css'
 import {useContext} from 'react'
 import {Link, withRouter} from 'react-router-dom'
@@ -29,7 +30,7 @@ const Header = props => {
       <div className="buttons-div">
         <p className="my-orders">My Orders</p>
         <Link to="/cart" className="link">
-          <button className="cart-button" type="button">
+          <button className="cart-button" type="button" testid="cart">
             {/* <img
               className="cart-icon"
               src="https://res.cloudinary.com/dx8csuvrh/image/upload/v1702554012/Movies%20App/Login%20Page/cart1_chhkzo.png"
@@ -40,6 +41,7 @@ const Header = props => {
         </Link>
         <span className="cart-items">
           <p className="items-count">{itemsInCart}</p>
+          {/* {itemsInCart} */}
         </span>
         <button
           className="logout-button"
