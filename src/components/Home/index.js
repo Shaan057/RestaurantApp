@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import './index.css'
 import {useState, useEffect, useContext} from 'react'
 import Loader from 'react-loader-spinner'

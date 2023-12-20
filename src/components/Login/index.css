@@ -1,5 +1,5 @@
 .login-form-container {
-  background-image: url('https://res.cloudinary.com/dx8csuvrh/image/upload/v1701850068/restaurant%20app/pexels-francesco-ungaro-673648_k92cbs.jpg');
+  background-image: url('https://res.cloudinary.com/dx8csuvrh/image/upload/v1703055705/Books/1000_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48_fftlwi.jpg');
   background-size: cover;
   display: flex;
   flex-direction: column;
@@ -56,7 +56,6 @@
   border-radius: 8px;
   width: 100%;
   max-width: 350px;
-
   background-color: white;
 }
 

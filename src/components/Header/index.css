@@ -62,7 +62,7 @@
 .cart-items {
   display: flex;
   position: relative;
-  right: 11px;
+  right: 8px;
   top: -6px;
   background-color: red;
   color: white;

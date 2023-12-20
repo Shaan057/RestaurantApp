@@ -2,6 +2,7 @@ import './index.css'
 import {useContext} from 'react'
 import {Link, withRouter} from 'react-router-dom'
 import Cookies from 'js-cookie'
+import {FiShoppingCart} from 'react-icons/fi'
 import CartContext from '../../context/CartContext'
 
 const Header = props => {
@@ -29,11 +30,12 @@ const Header = props => {
         <p className="my-orders">My Orders</p>
         <Link to="/cart" className="link">
           <button className="cart-button" type="button">
-            <img
+            {/* <img
               className="cart-icon"
               src="https://res.cloudinary.com/dx8csuvrh/image/upload/v1702554012/Movies%20App/Login%20Page/cart1_chhkzo.png"
               alt="cart icon"
-            />
+            /> */}
+            <FiShoppingCart className="cart-icon" />
           </button>
         </Link>
         <span className="cart-items">
