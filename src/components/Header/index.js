@@ -25,17 +25,12 @@ const Header = props => {
   return (
     <nav className="navBar">
       <Link to="/" className="link restaurantName-container">
-        <h1 className="restaurantName">{restaurantName}</h1>
+        <h1 className="restaurantName">{restaurantName || 'UNI Resto Cafe'}</h1>
       </Link>
       <div className="buttons-div">
         <p className="my-orders">My Orders</p>
         <Link to="/cart" className="link">
           <button className="cart-button" type="button" testid="cart">
-            {/* <img
-              className="cart-icon"
-              src="https://res.cloudinary.com/dx8csuvrh/image/upload/v1702554012/Movies%20App/Login%20Page/cart1_chhkzo.png"
-              alt="cart icon"
-            /> */}
             <FiShoppingCart className="cart-icon" />
           </button>
         </Link>

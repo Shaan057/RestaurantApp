@@ -123,7 +123,7 @@ const Home = () => {
 
   const renderLoadingView = () => (
     <div className="loader-container">
-      <Loader type="TailSpin" color="black" height="50" width="50" />
+      <Loader type="Puff" color="grey" height="50" width="50" />
     </div>
   )
   const renderFailureView = () => (
