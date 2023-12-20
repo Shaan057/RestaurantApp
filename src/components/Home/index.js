@@ -95,7 +95,6 @@ const Home = () => {
 
     return (
       <>
-        <Header />
         <ul className="menu-category-container">
           {tableMenuList.map(each => (
             <MenuCategoryItems
@@ -148,7 +147,12 @@ const Home = () => {
     }
   }
 
-  return <div className="bg-container">{renderPage()}</div>
+  return (
+    <div className="bg-container">
+      <Header />
+      {renderPage()}
+    </div>
+  )
 }
 
 export default Home
