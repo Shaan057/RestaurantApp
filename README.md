@@ -16,7 +16,7 @@ Develop a restaurant page, ensuring it is user-friendly and visually appealing.
     </div>
 </a>
 
-#### API:
+### API
 
 <a href="https://run.mocky.io/v3/77a7e71b-804a-4fbd-822c-3e365d3482cc" target=_blank_ >https://run.mocky.io/v3/77a7e71b-804a-4fbd-822c-3e365d3482cc</a>
 
